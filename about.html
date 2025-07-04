@@ -2,20 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About – GetBonus</title>
-  <link rel="stylesheet" href="/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - GetBonus</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em;
+      background-color: #111;
+      border-bottom: 1px solid #333;
+    }
+    header h1 {
+      font-size: 1.2em;
+      margin: 0;
+    }
+    nav a {
+      color: #00ccff;
+      text-decoration: none;
+      margin-left: 1em;
+    }
+    main {
+      padding: 2em;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    footer {
+      text-align: center;
+      padding: 1em;
+      font-size: 0.9em;
+      color: #888;
+      border-top: 1px solid #333;
+      margin-top: 2em;
+    }
+  </style>
 </head>
-<body class="dark">
+<body>
   <header>
-    <h1>About GetBonus</h1>
-    <nav><a href="/">← Back to Home</a></nav>
+    <h1>GetBonus</h1>
+    <nav>
+      <a href="index.html">🏠 Home</a>
+      <a href="#" onclick="toggleLang()">🌐</a>
+    </nav>
   </header>
+
   <main>
-    <p><strong>GetBonus</strong> is a curated collection of the best referral offers from trusted platforms like Revolut, Binance, eToro, and more.</p>
-    <p>We help you earn bonuses and rewards easily. Just pick a platform, sign up via the link, and enjoy the extra benefit.</p>
-    <p>This site is independently managed and updated regularly to ensure the best offers.</p>
+    <h2 id="about-title">About</h2>
+    <p id="about-content">
+      GetBonus is a curated list of referral links that help users earn bonuses by signing up to trusted platforms such as Binance, Revolut, Coinbase and more. This project is designed to be simple, fast and transparent.
+    </p>
   </main>
-  <footer><p>&copy; 2025 GetBonus</p></footer>
+
+  <footer>
+    &copy; 2025 GetBonus – All rights reserved.
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        "about-title": "About",
+        "about-content": "GetBonus is a curated list of referral links that help users earn bonuses by signing up to trusted platforms such as Binance, Revolut, Coinbase and more. This project is designed to be simple, fast and transparent.",
+      },
+      it: {
+        "about-title": "Chi siamo",
+        "about-content": "GetBonus è una raccolta curata di link referral che aiutano gli utenti a ottenere bonus iscrivendosi a piattaforme affidabili come Binance, Revolut, Coinbase e altri. Il progetto è semplice, veloce e trasparente.",
+      }
+    };
+
+    let lang = localStorage.getItem("lang") || "en";
+
+    function applyLang() {
+      document.getElementById("about-title").innerText = translations[lang]["about-title"];
+      document.getElementById("about-content").innerText = translations[lang]["about-content"];
+    }
+
+    function toggleLang() {
+      lang = lang === "en" ? "it" : "en";
+      localStorage.setItem("lang", lang);
+      applyLang();
+    }
+
+    applyLang();
+  </script>
 </body>
 </html>
