@@ -3,144 +3,271 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GetBonus – Best Invite Codes</title>
-  <meta name="description" content="Discover the best referral bonuses and join top platforms with invite codes.">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <meta name="description" content="Get bonuses from Binance, Coinbase, Revolut and more using our personal invite links.">
+  <meta name="keywords" content="invite codes, crypto bonuses, Revolut, Binance, Coinbase, referral">
+  <meta name="author" content="GetBonus">
+  <title>GetBonus – Best Invite Codes and Bonuses</title>
+  <link rel="icon" href="https://fav.farm/🔥">
   <style>
     body {
-      font-family: 'Inter', sans-serif;
       margin: 0;
-      background: #0d0d0d;
-      color: #f2f2f2;
-      line-height: 1.6;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
     }
     header {
-      background: #0066ff;
-      padding: 2rem 1rem;
+      background-color: #0070f3;
+      padding: 2rem;
       text-align: center;
+      color: white;
     }
-    header h1 {
-      font-size: 2.2rem;
+    h1 {
       margin: 0;
+      font-size: 2.2rem;
     }
     nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
+      text-align: center;
       margin-top: 1rem;
     }
     nav a {
-      color: #ff55dd;
-      font-weight: bold;
+      color: #ffc107;
       text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
     }
-    select {
+    .language-switcher {
+      display: inline-block;
       background: #fff;
       color: #000;
-      padding: 0.3rem;
-      border-radius: 4px;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      margin-left: 10px;
+      font-size: 0.9rem;
+      cursor: pointer;
     }
-    .container {
-      padding: 1.5rem;
-      max-width: 600px;
+    main {
+      padding: 1rem 2rem;
+      max-width: 800px;
       margin: auto;
     }
-    .platform {
-      background: #1a1a1a;
-      padding: 1rem;
+    section {
+      background: #111;
       border-radius: 8px;
-      margin-bottom: 1.2rem;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 2px 5px rgba(255,255,255,0.1);
     }
-    .platform h2 {
-      margin: 0;
-      font-size: 1.3rem;
+    h2 {
+      color: #0ff;
+      margin-bottom: 0.5rem;
     }
-    .platform p {
-      margin: 0.5rem 0;
+    .btn-container {
+      margin-top: 0.5rem;
     }
     .join-btn {
-      background: #00cc66;
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      margin-top: 0.5rem;
-      border-radius: 4px;
-      cursor: pointer;
-      text-decoration: none;
       display: inline-block;
+      background: #00c853;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      margin-right: 1rem;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
       font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 1rem;
-      color: #888;
     }
   </style>
   <script>
-    function changeLang(select) {
-      const lang = select.value;
-      const url = new URL(window.location.href);
-      url.searchParams.set("lang", lang);
-      window.location.href = url.toString();
+    function switchLang(lang) {
+      const content = translations[lang] || translations['en'];
+      document.querySelectorAll('[data-text]').forEach(el => {
+        const key = el.getAttribute('data-text');
+        if (content[key]) el.textContent = content[key];
+      });
     }
 
     function trackClick(platform) {
       fetch('/api/track.js', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ platform })
       });
     }
+
+    const translations = {
+      en: {
+        title: "Get the Best Bonuses with These Invite Codes",
+        about: "About",
+        join: "Join",
+        clickdesc: "Click on a platform to join and earn rewards:"
+      },
+      it: {
+        title: "Ottieni i Migliori Bonus con Questi Codici Invito",
+        about: "Chi siamo",
+        join: "Entra",
+        clickdesc: "Clicca su una piattaforma per ricevere i bonus:"
+      },
+      es: {
+        title: "Obtén los Mejores Bonos con Estos Códigos de Invitación",
+        about: "Acerca de",
+        join: "Únete",
+        clickdesc: "Haz clic en una plataforma para obtener recompensas:"
+      },
+      fr: {
+        title: "Obtenez les Meilleurs Bonus avec Ces Codes d'Invitation",
+        about: "À propos",
+        join: "Rejoindre",
+        clickdesc: "Cliquez sur une plateforme pour obtenir des récompenses :"
+      },
+      zh: {
+        title: "使用这些邀请码获得最佳奖金",
+        about: "关于我们",
+        join: "加入",
+        clickdesc: "点击平台即可获得奖励："
+      },
+      ar: {
+        title: "احصل على أفضل المكافآت باستخدام رموز الدعوة هذه",
+        about: "حول",
+        join: "انضم",
+        clickdesc: "انقر على منصة للحصول على المكافآت:"
+      },
+      ru: {
+        title: "Получите лучшие бонусы с этими кодами приглашения",
+        about: "О нас",
+        join: "Присоединиться",
+        clickdesc: "Нажмите на платформу, чтобы получить бонусы:"
+      }
+    };
   </script>
 </head>
 <body>
+  <header>
+    <h1 data-text="title">Get the Best Bonuses with These Invite Codes</h1>
+    <nav>
+      <a href="about.html" data-text="about">About</a> |
+      <span class="language-switcher" onclick="switchLang(prompt('Choose: en, it, es, fr, zh, ar, ru'));">🌐 EN</span>
+    </nav>
+  </header>
+  <main>
+    <p data-text="clickdesc">Click on a platform to join and earn rewards:</p>
+        <section>
+      <h2>Binance</h2>
+      <p>The world's leading cryptocurrency exchange.</p>
+      <div class="btn-container">
+        <a href="https://www.binance.com/referral/mystery-box/eu-rewardbox/claim?ref=GRO_18422_2WXBJ" target="_blank" class="join-btn" onclick="trackClick('Binance')" data-text="join">Join</a>
+      </div>
+    </section>
 
-<header>
-  <h1>Get the Best Bonuses with These Invite Codes</h1>
-  <nav>
-    <a href="about.html">About</a>
-    <select onchange="changeLang(this)">
-      <option value="en">🌐 EN</option>
-      <option value="it">🇮🇹 IT</option>
-      <option value="es">🇪🇸 ES</option>
-      <option value="fr">🇫🇷 FR</option>
-      <option value="zh">🇨🇳 中文</option>
-      <option value="ar">🇸🇦 AR</option>
-      <option value="ru">🇷🇺 RU</option>
-    </select>
-  </nav>
-</header>
+    <section>
+      <h2>Revolut</h2>
+      <p>One app for all things money. Send, spend, and save smarter.</p>
+      <div class="btn-container">
+        <a href="https://revolut.com/referral/?referral-code=marcov7dy!JUN2-25-AR&geo-redirect" target="_blank" class="join-btn" onclick="trackClick('Revolut')" data-text="join">Join</a>
+      </div>
+    </section>
 
-<div class="container">
-  <p>Click on a platform to join and earn rewards:</p>
+    <section>
+      <h2>Coinbase</h2>
+      <p>The easiest place to buy and sell cryptocurrency.</p>
+      <div class="btn-container">
+        <a href="https://coinbase.com/join/BCMK9M7?src=ios-link" target="_blank" class="join-btn" onclick="trackClick('Coinbase')" data-text="join">Join</a>
+      </div>
+    </section>
 
-  <div class="platform">
-    <h2>Binance</h2>
-    <p>Trade crypto and earn up to 100 USDT Mystery Box.</p>
-    <a class="join-btn" href="https://www.binance.com/referral/mystery-box/eu-rewardbox/claim?ref=GRO_18422_2WXBJ" onclick="trackClick('Binance')" target="_blank">Join</a>
-  </div>
+    <section>
+      <h2>Crypto.com</h2>
+      <p>The future of finance. Buy crypto, earn rewards, pay with crypto.</p>
+      <div class="btn-container">
+        <a href="https://crypto.com/app/fjfgub3kej" target="_blank" class="join-btn" onclick="trackClick('Crypto.com')" data-text="join">Join</a>
+      </div>
+    </section>
 
-  <div class="platform">
-    <h2>Coinbase</h2>
-    <p>Buy crypto and get bonus after your first trade.</p>
-    <a class="join-btn" href="https://coinbase.com/join/BCMK9M7?src=ios-link" onclick="trackClick('Coinbase')" target="_blank">Join</a>
-  </div>
+    <section>
+      <h2>eToro</h2>
+      <p>Trade and invest in top assets. Follow top traders.</p>
+      <div class="btn-container">
+        <a href="https://etoro.tw/3PQlrEl" target="_blank" class="join-btn" onclick="trackClick('eToro')" data-text="join">Join</a>
+      </div>
+    </section>
 
-  <div class="platform">
-    <h2>Crypto.com</h2>
-    <p>Get a bonus when you stake CRO and sign up.</p>
-    <a class="join-btn" href="https://crypto.com/app/fjfgub3kej" onclick="trackClick('Crypto')" target="_blank">Join</a>
-  </div>
+    <section>
+      <h2>XPortal</h2>
+      <p>Your gateway to the MultiversX ecosystem.</p>
+      <div class="btn-container">
+        <a href="https://xportal.app.link/referral?code=fv0uij0594" target="_blank" class="join-btn" onclick="trackClick('XPortal')" data-text="join">Join</a>
+      </div>
+    </section>
 
-  <!-- Aggiungi qui le altre piattaforme allo stesso modo -->
+    <section>
+      <h2>Nexo</h2>
+      <p>Crypto lending & earn platform. Get interest on your digital assets.</p>
+      <div class="btn-container">
+        <a href="https://nexo.com/ref/ofxlxksd1u?src=ios-link" target="_blank" class="join-btn" onclick="trackClick('Nexo')" data-text="join">Join</a>
+      </div>
+    </section>
 
-</div>
+    <section>
+      <h2>Bitget</h2>
+      <p>Leading crypto exchange for copy trading and futures.</p>
+      <div class="btn-container">
+        <a href="https://share.bitget.com/u/0M1NNWG0" target="_blank" class="join-btn" onclick="trackClick('Bitget')" data-text="join">Join</a>
+      </div>
+    </section>
 
-<footer>
-  © 2025 GetBonus – All rights reserved.
-</footer>
+    <section>
+      <h2>XT.com</h2>
+      <p>Global exchange platform for digital assets.</p>
+      <div class="btn-container">
+        <a href="https://www.xt.com/en/accounts/register?ref=I4IXXC" target="_blank" class="join-btn" onclick="trackClick('XT.com')" data-text="join">Join</a>
+      </div>
+    </section>
+        <footer>
+      <p>&copy; 2025 GetBonus. All rights reserved.</p>
+      <div class="language-selector">
+        🌍 
+        <select onchange="changeLanguage(this.value)">
+          <option value="en">English</option>
+          <option value="it">Italiano</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="zh">中文</option>
+          <option value="ar">العربية</option>
+          <option value="ru">Русский</option>
+        </select>
+      </div>
+    </footer>
 
-</body>
+    <script>
+      const translations = {
+        en: { join: "Join" },
+        it: { join: "Iscriviti" },
+        es: { join: "Unirse" },
+        fr: { join: "Rejoindre" },
+        zh: { join: "加入" },
+        ar: { join: "انضم" },
+        ru: { join: "Присоединиться" }
+      };
+
+      function changeLanguage(lang) {
+        document.querySelectorAll('.join-btn').forEach(el => {
+          const text = translations[lang]?.join || "Join";
+          el.textContent = text;
+        });
+        localStorage.setItem("lang", lang);
+      }
+
+      function applyStoredLanguage() {
+        const lang = localStorage.getItem("lang") || "en";
+        document.querySelector("select").value = lang;
+        changeLanguage(lang);
+      }
+
+      function trackClick(name) {
+        fetch(`/api/track.js?ref=${encodeURIComponent(name)}`)
+          .then(() => console.log(`Tracked click on: ${name}`))
+          .catch(err => console.error("Tracking failed:", err));
+      }
+
+      document.addEventListener("DOMContentLoaded", applyStoredLanguage);
+    </script>
+  </body>
 </html>
