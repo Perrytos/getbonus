@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="About GetBonus – discover our mission and how we help you earn." />
+  <title>About – GetBonus</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: #f0f0f0;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #00e676;
+    }
+    main {
+      max-width: 700px;
+      margin: auto;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    p {
+      margin-bottom: 1.2rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    .lang-select {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    select {
+      background-color: #121212;
+      color: #f0f0f0;
+      padding: 0.4rem;
+      border-radius: 5px;
+      border: 1px solid #444;
+    }
+    a {
+      color: #00e676;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">About GetBonus</h1>
+    <div class="lang-select">
+      <select id="languageSelector" onchange="changeLang()">
+        <option value="en">🌐 English</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="ru">🇷🇺 Русский</option>
+      </select>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- Content inserted dynamically -->
+  </main>
+
+  <footer>© 2025 GetBonus. <a href="index.html">← Back to Home</a></footer>
+
+  <script>
+    const texts = {
+      en: `GetBonus is a free platform where you can find the best referral links for apps and services like Revolut, Binance, Coinbase, and many more. 
+      We help users earn rewards by sharing and using codes that provide bonuses for both parties. 
+      Our mission is to make it simple, clear, and rewarding for everyone. We do not collect personal data or require registrations — it's all open and accessible.`,
+      
+      it: `GetBonus è una piattaforma gratuita dove puoi trovare i migliori link di invito per app e servizi come Revolut, Binance, Coinbase e molti altri. 
+      Aiutiamo gli utenti a guadagnare premi condividendo e utilizzando codici che offrono bonus a entrambe le parti. 
+      La nostra missione è rendere tutto semplice, trasparente e vantaggioso. Non raccogliamo dati personali né richiediamo registrazioni — tutto è aperto e accessibile.`,
+
+      es: `GetBonus es una plataforma gratuita donde puedes encontrar los mejores enlaces de invitación para apps y servicios como Revolut, Binance, Coinbase y muchos más. 
+      Ayudamos a los usuarios a ganar recompensas compartiendo y utilizando códigos que ofrecen bonos para ambas partes. 
+      Nuestra misión es hacerlo simple, claro y beneficioso para todos. No recopilamos datos personales ni requerimos registro — todo es abierto y accesible.`,
+
+      fr: `GetBonus est une plateforme gratuite où vous pouvez trouver les meilleurs liens de parrainage pour des apps comme Revolut, Binance, Coinbase et plus encore. 
+      Nous aidons les utilisateurs à gagner des récompenses en partageant et en utilisant des codes offrant des bonus pour les deux parties. 
+      Notre mission est de rendre cela simple, transparent et avantageux. Aucune collecte de données personnelles, aucune inscription nécessaire — tout est ouvert et accessible.`,
+
+      zh: `GetBonus 是一个免费的平台，你可以在这里找到诸如 Revolut、Binance、Coinbase 等应用的最佳邀请链接。
+      我们帮助用户通过分享和使用双方都能获得奖励的推荐码来获得收益。
+      我们的使命是让一切变得简单、清晰且有回报。我们不收集个人数据，也不要求注册 —— 一切都是开放的。`,
+
+      ar: `GetBonus هو منصة مجانية حيث يمكنك العثور على أفضل روابط الدعوة للتطبيقات مثل Revolut و Binance و Coinbase وغيرها. 
+      نساعد المستخدمين على كسب المكافآت من خلال مشاركة واستخدام رموز توفر المكافآت للطرفين.
+      مهمتنا هي أن نجعل الأمر بسيطًا وواضحًا ومربحًا للجميع. لا نقوم بجمع بيانات شخصية أو طلب تسجيل — كل شيء مفتوح ومتاح.`,
+
+      ru: `GetBonus — это бесплатная платформа, где вы можете найти лучшие реферальные ссылки на приложения и сервисы, такие как Revolut, Binance, Coinbase и другие.
+      Мы помогаем пользователям зарабатывать бонусы, делясь и используя коды, которые дают выгоду обеим сторонам.
+      Наша миссия — сделать всё просто, прозрачно и выгодно. Мы не собираем личные данные и не требуем регистрации — всё открыто и доступно.`
+    };
+
+    function changeLang() {
+      const lang = document.getElementById("languageSelector").value;
+      document.getElementById("title").textContent = {
+        en: "About GetBonus",
+        it: "Info su GetBonus",
+        es: "Acerca de GetBonus",
+        fr: "À propos de GetBonus",
+        zh: "关于 GetBonus",
+        ar: "حول GetBonus",
+        ru: "О GetBonus"
+      }[lang];
+      document.getElementById("content").innerHTML = `<p>${texts[lang]}</p>`;
+    }
+
+    window.onload = changeLang;
+  </script>
+</body>
+</html>
