@@ -1,242 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GetBonus - Referral Deals</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GetBonus - Best referral bonuses</title>
+  <meta name="description" content="Join the top platforms with exclusive referral bonuses. Crypto, finance, and more — Get your bonus now!" />
+  <meta name="keywords" content="referral, bonus, crypto, finance, signup, revolut, binance, getbonus" />
+  <meta name="author" content="Marco" />
+  <meta property="og:title" content="GetBonus - Best referral bonuses" />
+  <meta property="og:description" content="Join the top platforms with exclusive referral bonuses. Crypto, finance, and more — Get your bonus now!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getbonus.vercel.app/" />
+  <meta property="og:image" content="https://getbonus.vercel.app/preview.jpg" />
+  <link rel="stylesheet" href="styles.css" />
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0a0a0a;
+      background-color: #000;
       color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
     header {
-      background-color: #121212;
       padding: 20px;
       text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
+      font-size: 2em;
     }
     .lang-select {
-      margin-top: 10px;
+      text-align: center;
+      margin-bottom: 20px;
     }
-    .container {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 0 20px;
+    .referral-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      padding-bottom: 50px;
     }
-    .card {
-      background-color: #1a1a1a;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
+    .referral {
+      background: #111;
       padding: 20px;
-      margin-bottom: 15px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 0 5px #444;
     }
-    .card h2 {
-      margin-top: 0;
+    .referral h2 {
+      margin: 0 0 10px 0;
     }
-    .description {
-      margin: 10px 0;
-      font-size: 0.95rem;
+    .referral p {
+      margin: 0 0 15px 0;
     }
-    .ref-link {
-      word-break: break-all;
-      color: #00bfff;
+    .referral a {
+      background: #1db954;
+      color: #000;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
     }
-    .copy-btn {
-      margin-top: 8px;
-      padding: 6px 12px;
-      background-color: #333;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+    .referral a:hover {
+      background: #1ed760;
     }
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 0.8rem;
+      font-size: 0.9em;
       color: #888;
     }
   </style>
-</head>
-<body>
-  <header>
-    <h1 id="title">GetBonus: Best Referral Links</h1>
-    <div class="lang-select">
-      <label for="lang">🌐</label>
-      <select id="lang" onchange="changeLang(this.value)">
-        <option value="en">English</option>
-        <option value="it">Italiano</option>
-        <option value="es">Español</option>
-        <option value="fr">Français</option>
-        <option value="zh">中文</option>
-        <option value="ar">العربية</option>
-        <option value="ru">Русский</option>
-      </select>
-    </div>
-  </header>
+  <script>
+    const translations = {
+      en: {
+        title: "GetBonus - Best referral bonuses",
+        links: {
+          binance: "Register and claim your mystery box on Binance.",
+          revolut: "Open your Revolut account and get your welcome bonus.",
+          coinbase: "Join Coinbase and get a free crypto bonus.",
+          crypto: "Sign up on Crypto.com and get rewards instantly.",
+          bitget: "Register on Bitget and start earning today.",
+          nexo: "Earn crypto with Nexo. Join and get a bonus.",
+          xt: "Trade on XT.com with a welcome bonus.",
+          xportal: "Join xPortal and earn rewards.",
+          etoro: "Invest with eToro and claim your bonus.",
+        },
+      },
+      it: {
+        title: "GetBonus - I migliori bonus di benvenuto",
+        links: {
+          binance: "Registrati e ricevi la mystery box su Binance.",
+          revolut: "Apri il conto Revolut e ricevi il bonus di benvenuto.",
+          coinbase: "Unisciti a Coinbase e ricevi un bonus in crypto.",
+          crypto: "Registrati su Crypto.com e ricevi subito dei premi.",
+          bitget: "Registrati su Bitget e inizia a guadagnare.",
+          nexo: "Guadagna crypto con Nexo. Unisciti ora.",
+          xt: "Fai trading su XT.com con un bonus di benvenuto.",
+          xportal: "Unisciti a xPortal e ricevi ricompense.",
+          etoro: "Investi con eToro e ricevi il tuo bonus.",
+        },
+      },
+      es: {
+        title: "GetBonus - Mejores bonos de referencia",
+        links: {
+          binance: "Regístrate y recibe tu mystery box en Binance.",
+          revolut: "Abre tu cuenta Revolut y obtén tu bono.",
+          coinbase: "Únete a Coinbase y consigue un bono en cripto.",
+          crypto: "Regístrate en Crypto.com y recibe recompensas.",
+          bitget: "Regístrate en Bitget y comienza a ganar.",
+          nexo: "Gana cripto con Nexo. Únete ahora.",
+          xt: "Opera en XT.com con bono de bienvenida.",
+          xportal: "Únete a xPortal y gana recompensas.",
+          etoro: "Invierte con eToro y recibe tu bono.",
+        },
+      },
+      fr: {
+        title: "GetBonus - Meilleures offres de parrainage",
+        links: {
+          binance: "Inscrivez-vous et recevez une mystery box sur Binance.",
+          revolut: "Ouvrez un compte Revolut et recevez un bonus.",
+          coinbase: "Rejoignez Coinbase et recevez un bonus crypto.",
+          crypto: "Inscrivez-vous sur Crypto.com et recevez des récompenses.",
+          bitget: "Inscrivez-vous sur Bitget et commencez à gagner.",
+          nexo: "Gagnez des cryptos avec Nexo. Rejoignez-nous.",
+          xt: "Tradez sur XT.com avec un bonus.",
+          xportal: "Rejoignez xPortal et recevez des récompenses.",
+          etoro: "Investissez avec eToro et obtenez un bonus.",
+        },
+      },
+    };
 
-  <div class="container" id="content">
-    <!-- JS will generate content here -->
+    function setLang(lang) {
+      const t = translations[lang] || translations.en;
+      document.querySelector("header").textContent = t.title;
+      document.querySelectorAll(".referral").forEach((r, i) => {
+        const keys = Object.keys(t.links);
+        const platform = keys[i];
+        if (platform) {
+          r.querySelector("p").textContent = t.links[platform];
+        }
+      });
+    }
+  </script>
+</head>
+<body onload="setLang('en')">
+  <header>GetBonus - Best referral bonuses</header>
+  <div class="lang-select">
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('it')">IT</button>
+    <button onclick="setLang('es')">ES</button>
+    <button onclick="setLang('fr')">FR</button>
   </div>
 
-  <footer>
-    &copy; 2025 GetBonus. Powered by Marco 🌀
-  </footer>
+  <div class="referral-list">
+    <div class="referral">
+      <h2>Binance</h2>
+      <p>Loading...</p>
+      <a href="https://www.binance.com/referral/mystery-box/eu-rewardbox/claim?ref=GRO_18422_2WXBJ" target="_blank">Get Bonus</a>
+    </div>
+    <div class="referral">
+      <h2>Revolut</h2>
+      <p>Loading...</p>
+      <a href="https://revolut.com/referral/?referral-code=marcov7dy!JUN2-25-AR&geo-redirect" target="_blank">Get Bonus</a>
+    </div>
+    <div class="referral">
+      <h2>Coinbase</h2>
+      <p>Loading...</p>
+      <a href="https://coinbase.com/join/BCMK9M7?src=ios-link" target="_blank">Get Bonus</a>
+    </div>
+    <div class="referral">
+      <h2>Crypto.com</h2>
+      <p>Loading...</p>
+      <a href="https://crypto.com/app/fjfgub3kej" target="_blank">Get Bonus</a>
+    </div>
+    <div class="referral">
+      <h2>Bitget</h2>
+      <p>Loading...</p>
+      <a href="https://share.bitget.com/u/0M1NNWG0" target="_blank">Get Bonus</a>
+    </div>
+    <div class="referral">
+      <h2>Nexo</h2>
+      <p>Loading...</p>
+      <a href="https://nexo.com/ref/ofxlxksd1u?src=ios-link" target="_blank">Get Bonus</a>
+    </div>
+    <div class="referral">
+      <h2>XT.com</h2>
+      <p>Loading...</p>
+      <a href="https://www.xt.com/en/accounts/register?ref=I4IXXC" target="_blank">Get Bonus</a>
+    </div>
+    <div class="referral">
+      <h2>xPortal</h2>
+      <p>Loading...</p>
+      <a href="https://xportal.app.link/referral?code=fv0uij0594" target="_blank">Get Bonus</a>
+    </div>
+    <div class="referral">
+      <h2>eToro</h2>
+      <p>Loading...</p>
+      <a href="https://etoro.tw/3PQlrEl" target="_blank">Get Bonus</a>
+    </div>
+  </div>
 
-  <script>
-    const data = [
-      {
-        name: "Binance",
-        link: "https://www.binance.com/referral/mystery-box/eu-rewardbox/claim?ref=GRO_18422_2WXBJ",
-        desc: {
-          en: "Join the world’s largest crypto exchange.",
-          it: "Unisciti al più grande exchange di criptovalute.",
-          es: "Únete al mayor exchange de criptomonedas.",
-          fr: "Rejoignez la plus grande plateforme crypto.",
-          zh: "加入全球最大加密交易所。",
-          ar: "انضم إلى أكبر منصة لتداول العملات المشفرة.",
-          ru: "Присоединяйтесь к крупнейшей криптобирже."
-        }
-      },
-      {
-        name: "Coinbase",
-        link: "https://coinbase.com/join/BCMK9M7?src=ios-link",
-        desc: {
-          en: "Start your crypto journey with Coinbase.",
-          it: "Inizia il tuo viaggio crypto con Coinbase.",
-          es: "Comienza tu camino cripto con Coinbase.",
-          fr: "Commencez votre aventure crypto avec Coinbase.",
-          zh: "开始您的加密之旅，选 Coinbase。",
-          ar: "ابدأ رحلتك في العملات الرقمية مع Coinbase.",
-          ru: "Начните крипто-путь с Coinbase."
-        }
-      },
-      {
-        name: "Crypto.com",
-        link: "https://crypto.com/app/fjfgub3kej",
-        desc: {
-          en: "All-in-one crypto app. Earn, trade & spend.",
-          it: "App crypto tutto-in-uno. Guadagna, scambia e spendi.",
-          es: "App todo en uno: gana, intercambia, gasta.",
-          fr: "App crypto tout-en-un. Gagnez, échangez, dépensez.",
-          zh: "一站式加密应用：赚、交易、花。",
-          ar: "تطبيق شامل للعملات الرقمية. اربح وتداول وانفق.",
-          ru: "Все-в-одном крипто приложение: зарабатывайте, торгуйте, тратьте."
-        }
-      },
-      {
-        name: "eToro",
-        link: "https://etoro.tw/3PQlrEl",
-        desc: {
-          en: "Trade crypto, stocks & more. Copy experts.",
-          it: "Scambia cripto, azioni e altro. Copia gli esperti.",
-          es: "Opera con cripto y acciones. Copia expertos.",
-          fr: "Tradez crypto, actions, copiez les experts.",
-          zh: "交易加密货币和股票。复制专家交易。",
-          ar: "تداول العملات الرقمية والأسهم. انسخ الخبراء.",
-          ru: "Торгуйте криптой и акциями. Копируйте экспертов."
-        }
-      },
-      {
-        name: "XPortal",
-        link: "https://xportal.app.link/referral?code=fv0uij0594",
-        desc: {
-          en: "Web3 super app by MultiversX.",
-          it: "Super app Web3 di MultiversX.",
-          es: "Super app Web3 de MultiversX.",
-          fr: "Super app Web3 par MultiversX.",
-          zh: "MultiversX 推出的 Web3 超级应用。",
-          ar: "تطبيق Web3 فائق من MultiversX.",
-          ru: "Web3 супер-приложение от MultiversX."
-        }
-      },
-      {
-        name: "Nexo",
-        link: "https://nexo.com/ref/ofxlxksd1u?src=ios-link",
-        desc: {
-          en: "Earn BTC rewards with your crypto.",
-          it: "Guadagna ricompense in BTC con le tue cripto.",
-          es: "Gana recompensas en BTC con tus cripto.",
-          fr: "Gagnez des récompenses BTC avec vos cryptos.",
-          zh: "用加密货币赚取 BTC 奖励。",
-          ar: "اربح مكافآت BTC باستخدام عملاتك الرقمية.",
-          ru: "Получайте награды в BTC за свои криптовалюты."
-        }
-      },
-      {
-        name: "Bitget",
-        link: "https://share.bitget.com/u/0M1NNWG0",
-        desc: {
-          en: "Smart crypto exchange for future trading.",
-          it: "Exchange cripto intelligente per il trading futuro.",
-          es: "Exchange cripto inteligente para trading.",
-          fr: "Exchange crypto intelligent pour le trading.",
-          zh: "未来交易的智能加密交易所。",
-          ar: "منصة تداول ذكية للعملات الرقمية.",
-          ru: "Умная криптобиржа для фьючерсной торговли."
-        }
-      },
-      {
-        name: "XT.com",
-        link: "https://www.xt.com/en/accounts/register?ref=I4IXXC",
-        desc: {
-          en: "Emerging crypto exchange platform.",
-          it: "Piattaforma di exchange emergente.",
-          es: "Plataforma de exchange emergente.",
-          fr: "Plateforme crypto émergente.",
-          zh: "新兴加密交易平台。",
-          ar: "منصة تبادل عملات رقمية ناشئة.",
-          ru: "Развивающаяся криптобиржа."
-        }
-      },
-      {
-        name: "Revolut",
-        link: "https://revolut.com/referral/?referral-code=marcov7dy!JUN2-25-AR&geo-redirect",
-        desc: {
-          en: "All-in-one finance app. Save, invest & more.",
-          it: "App finanziaria tutto-in-uno. Risparmia, investi e altro.",
-          es: "App financiera todo en uno. Ahorra, invierte y más.",
-          fr: "App finance tout-en-un. Épargnez, investissez et plus.",
-          zh: "一体化金融应用：储蓄、投资等。",
-          ar: "تطبيق مالي شامل. ادخر واستثمر والمزيد.",
-          ru: "Все-в-одном финансовое приложение: копите, инвестируйте и т.д."
-        }
-      }
-    ];
-
-    function render(lang) {
-      const container = document.getElementById("content");
-      container.innerHTML = "";
-      data.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <h2>${item.name}</h2>
-          <div class="description">${item.desc[lang] || item.desc["en"]}</div>
-          <div><a class="ref-link" href="${item.link}" target="_blank">${item.link}</a></div>
-          <button class="copy-btn" onclick="copyText('${item.link}')">Copy Link</button>
-        `;
-        container.appendChild(card);
-      });
-    }
-
-    function changeLang(lang) {
-      render(lang);
-    }
-
-    function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Link copied!");
-      });
-    }
-
-    // inizializza con inglese
-    render("en");
-  </script>
+  <footer>&copy; 2025 GetBonus by Marco</footer>
 </body>
 </html>
