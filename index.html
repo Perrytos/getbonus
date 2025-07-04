@@ -3,160 +3,144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GetBonus – Best Invite Codes & Bonuses</title>
-  <meta name="description" content="Get bonuses from Revolut, Binance, eToro, and more. Join with our invite codes and earn instantly.">
-  <link rel="stylesheet" href="/styles.css" />
-  <script>
-    const lang = {
-      en: {
-        title: "Get the Best Bonuses with These Invite Codes",
-        description: "Click on a platform to join and earn rewards:",
-        copy: "Copy link",
-        copied: "Copied!",
-        about: "About",
-      },
-      it: {
-        title: "Ottieni i migliori bonus con questi codici invito",
-        description: "Clicca su una piattaforma per registrarti e ottenere un bonus:",
-        copy: "Copia link",
-        copied: "Copiato!",
-        about: "Chi siamo",
-      },
-      es: {
-        title: "Obtén los mejores bonos con estos códigos de invitación",
-        description: "Haz clic en una plataforma para unirte y ganar recompensas:",
-        copy: "Copiar enlace",
-        copied: "¡Copiado!",
-        about: "Sobre nosotros",
-      },
-      fr: {
-        title: "Obtenez les meilleures primes avec ces codes d'invitation",
-        description: "Cliquez sur une plateforme pour vous inscrire et gagner des récompenses :",
-        copy: "Copier le lien",
-        copied: "Copié !",
-        about: "À propos",
-      },
-      zh: {
-        title: "使用这些邀请码获得最佳奖励",
-        description: "点击平台链接注册并获取奖励：",
-        copy: "复制链接",
-        copied: "已复制！",
-        about: "关于我们",
-      },
-      ru: {
-        title: "Получите лучшие бонусы с этими кодами приглашения",
-        description: "Нажмите на платформу, чтобы зарегистрироваться и получить бонус:",
-        copy: "Скопировать ссылку",
-        copied: "Скопировано!",
-        about: "О нас",
-      },
-      ar: {
-        title: "احصل على أفضل المكافآت باستخدام رموز الدعوة هذه",
-        description: "انقر على منصة للتسجيل والحصول على المكافأة:",
-        copy: "نسخ الرابط",
-        copied: "تم النسخ!",
-        about: "معلومات عنا",
-      }
-    };
-    let currentLang = 'en';
-    function switchLang(l) {
-      currentLang = l;
-      document.getElementById("title").textContent = lang[l].title;
-      document.getElementById("desc").textContent = lang[l].description;
-      document.querySelectorAll(".copy-btn").forEach(btn => btn.textContent = lang[l].copy);
-      document.getElementById("about-link").textContent = lang[l].about;
+  <title>GetBonus – Best Invite Codes</title>
+  <meta name="description" content="Discover the best referral bonuses and join top platforms with invite codes.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #0d0d0d;
+      color: #f2f2f2;
+      line-height: 1.6;
     }
-    function copyLink(el, url) {
-      navigator.clipboard.writeText(url).then(() => {
-        const original = el.textContent;
-        el.textContent = lang[currentLang].copied;
-        setTimeout(() => { el.textContent = original; }, 1500);
-      });
-      fetch('/api/track', {
+    header {
+      background: #0066ff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    nav a {
+      color: #ff55dd;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    select {
+      background: #fff;
+      color: #000;
+      padding: 0.3rem;
+      border-radius: 4px;
+    }
+    .container {
+      padding: 1.5rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    .platform {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.2rem;
+    }
+    .platform h2 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+    .platform p {
+      margin: 0.5rem 0;
+    }
+    .join-btn {
+      background: #00cc66;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 1rem;
+      color: #888;
+    }
+  </style>
+  <script>
+    function changeLang(select) {
+      const lang = select.value;
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.location.href = url.toString();
+    }
+
+    function trackClick(platform) {
+      fetch('/api/track.js', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ link: url })
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ platform })
       });
     }
   </script>
 </head>
-<body class="dark">
-  <header>
-    <h1 id="title">Get the Best Bonuses with These Invite Codes</h1>
-    <nav>
-      <a id="about-link" href="/about.html">About</a> | 
-      <select onchange="switchLang(this.value)">
-        <option value="en">EN</option>
-        <option value="it">IT</option>
-        <option value="es">ES</option>
-        <option value="fr">FR</option>
-        <option value="zh">ZH</option>
-        <option value="ru">RU</option>
-        <option value="ar">AR</option>
-      </select>
-    </nav>
-  </header>
-  <main>
-    <p id="desc">Click on a platform to join and earn rewards:</p>
-    <div class="cards">
-      <div class="card">
-        <h2>Binance</h2>
-        <p>Trade crypto and earn up to 100 USDT Mystery Box.</p>
-        <a href="https://www.binance.com/referral/mystery-box/eu-rewardbox/claim?ref=GRO_18422_2WXBJ" target="_blank">Join</a>
-        <button class="copy-btn" onclick="copyLink(this, 'https://www.binance.com/referral/mystery-box/eu-rewardbox/claim?ref=GRO_18422_2WXBJ')">Copy link</button>
-      </div>
-      <div class="card">
-        <h2>Coinbase</h2>
-        <p>Buy crypto and get bonus after your first trade.</p>
-        <a href="https://coinbase.com/join/BCMK9M7?src=ios-link" target="_blank">Join</a>
-        <button class="copy-btn" onclick="copyLink(this, 'https://coinbase.com/join/BCMK9M7?src=ios-link')">Copy link</button>
-      </div>
-      <div class="card">
-        <h2>Crypto.com</h2>
-        <p>Get a bonus when you stake CRO and sign up.</p>
-        <a href="https://crypto.com/app/fjfgub3kej" target="_blank">Join</a>
-        <button class="copy-btn" onclick="copyLink(this, 'https://crypto.com/app/fjfgub3kej')">Copy link</button>
-      </div>
-      <div class="card">
-        <h2>eToro</h2>
-        <p>Invest in stocks and crypto with $10 bonus.</p>
-        <a href="https://etoro.tw/3PQlrEl" target="_blank">Join</a>
-        <button class="copy-btn" onclick="copyLink(this, 'https://etoro.tw/3PQlrEl')">Copy link</button>
-      </div>
-      <div class="card">
-        <h2>XPortal</h2>
-        <p>Explore Web3 and earn rewards instantly.</p>
-        <a href="https://xportal.app.link/referral?code=fv0uij0594" target="_blank">Join</a>
-        <button class="copy-btn" onclick="copyLink(this, 'https://xportal.app.link/referral?code=fv0uij0594')">Copy link</button>
-      </div>
-      <div class="card">
-        <h2>Nexo</h2>
-        <p>Earn interest on crypto and get welcome bonus.</p>
-        <a href="https://nexo.com/ref/ofxlxksd1u?src=ios-link" target="_blank">Join</a>
-        <button class="copy-btn" onclick="copyLink(this, 'https://nexo.com/ref/ofxlxksd1u?src=ios-link')">Copy link</button>
-      </div>
-      <div class="card">
-        <h2>Bitget</h2>
-        <p>Trade futures and earn up to $100 reward.</p>
-        <a href="https://share.bitget.com/u/0M1NNWG0" target="_blank">Join</a>
-        <button class="copy-btn" onclick="copyLink(this, 'https://share.bitget.com/u/0M1NNWG0')">Copy link</button>
-      </div>
-      <div class="card">
-        <h2>XT.com</h2>
-        <p>Register and trade with zero spot trading fees.</p>
-        <a href="https://www.xt.com/en/accounts/register?ref=I4IXXC" target="_blank">Join</a>
-        <button class="copy-btn" onclick="copyLink(this, 'https://www.xt.com/en/accounts/register?ref=I4IXXC')">Copy link</button>
-      </div>
-      <div class="card">
-        <h2>Revolut</h2>
-        <p>Get up to €100 for signing up and inviting friends.</p>
-        <a href="https://revolut.com/referral/?referral-code=marcov7dy!JUN2-25-AR&geo-redirect" target="_blank">Join</a>
-        <button class="copy-btn" onclick="copyLink(this, 'https://revolut.com/referral/?referral-code=marcov7dy!JUN2-25-AR&geo-redirect')">Copy link</button>
-      </div>
-    </div>
-  </main>
-  <footer>
-    <p>&copy; 2025 GetBonus. All rights reserved.</p>
-  </footer>
+<body>
+
+<header>
+  <h1>Get the Best Bonuses with These Invite Codes</h1>
+  <nav>
+    <a href="about.html">About</a>
+    <select onchange="changeLang(this)">
+      <option value="en">🌐 EN</option>
+      <option value="it">🇮🇹 IT</option>
+      <option value="es">🇪🇸 ES</option>
+      <option value="fr">🇫🇷 FR</option>
+      <option value="zh">🇨🇳 中文</option>
+      <option value="ar">🇸🇦 AR</option>
+      <option value="ru">🇷🇺 RU</option>
+    </select>
+  </nav>
+</header>
+
+<div class="container">
+  <p>Click on a platform to join and earn rewards:</p>
+
+  <div class="platform">
+    <h2>Binance</h2>
+    <p>Trade crypto and earn up to 100 USDT Mystery Box.</p>
+    <a class="join-btn" href="https://www.binance.com/referral/mystery-box/eu-rewardbox/claim?ref=GRO_18422_2WXBJ" onclick="trackClick('Binance')" target="_blank">Join</a>
+  </div>
+
+  <div class="platform">
+    <h2>Coinbase</h2>
+    <p>Buy crypto and get bonus after your first trade.</p>
+    <a class="join-btn" href="https://coinbase.com/join/BCMK9M7?src=ios-link" onclick="trackClick('Coinbase')" target="_blank">Join</a>
+  </div>
+
+  <div class="platform">
+    <h2>Crypto.com</h2>
+    <p>Get a bonus when you stake CRO and sign up.</p>
+    <a class="join-btn" href="https://crypto.com/app/fjfgub3kej" onclick="trackClick('Crypto')" target="_blank">Join</a>
+  </div>
+
+  <!-- Aggiungi qui le altre piattaforme allo stesso modo -->
+
+</div>
+
+<footer>
+  © 2025 GetBonus – All rights reserved.
+</footer>
+
 </body>
 </html>
