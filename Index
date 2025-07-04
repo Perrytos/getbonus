@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get bonuses and free rewards by joining top platforms like Revolut, Binance, Coinbase and more.">
+  <meta name="keywords" content="get bonus, crypto referral, signup bonus, revolut, binance, coinbase, free crypto, cashback">
+  <meta name="author" content="Marco">
+  <title>GetBonus — Grab your rewards now!</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+    header {
+      background: #0f0f0f;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+    }
+    .bonus-card {
+      background: #1a1a1a;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border: 1px solid #333;
+    }
+    .bonus-card h2 {
+      margin: 0 0 5px;
+      font-size: 20px;
+    }
+    .bonus-card p {
+      margin: 0 0 10px;
+      font-size: 15px;
+    }
+    .bonus-card a {
+      display: inline-block;
+      background: #00ff88;
+      color: #000;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    GetBonus 🎁
+  </header>
+  <div class="container">
+    <div class="bonus-card">
+      <h2>Revolut</h2>
+      <p>Get a free card and up to €100 bonus when you join!</p>
+      <a href="https://revolut.com/referral/?referral-code=marcov7dy!JUN2-25-AR&geo-redirect" target="_blank">Claim Bonus</a>
+    </div>
+    <div class="bonus-card">
+      <h2>Binance</h2>
+      <p>Mystery Box and up to $100 in rewards for new users.</p>
+      <a href="https://www.binance.com/referral/mystery-box/eu-rewardbox/claim?ref=GRO_18422_2WXBJ" target="_blank">Claim Bonus</a>
+    </div>
+    <div class="bonus-card">
+      <h2>Coinbase</h2>
+      <p>Earn free crypto when you sign up and verify your ID.</p>
+      <a href="https://coinbase.com/join/BCMK9M7?src=ios-link" target="_blank">Claim Bonus</a>
+    </div>
+    <div class="bonus-card">
+      <h2>Crypto.com</h2>
+      <p>Get $25 bonus when you stake CRO tokens after signup.</p>
+      <a href="https://crypto.com/app/fjfgub3kej" target="_blank">Claim Bonus</a>
+    </div>
+    <div class="bonus-card">
+      <h2>eToro</h2>
+      <p>Join the social trading platform and earn rewards.</p>
+      <a href="https://etoro.tw/3PQlrEl" target="_blank">Claim Bonus</a>
+    </div>
+    <div class="bonus-card">
+      <h2>XPortal</h2>
+      <p>Start your Web3 journey and earn crypto rewards.</p>
+      <a href="https://xportal.app.link/referral?code=fv0uij0594" target="_blank">Claim Bonus</a>
+    </div>
+    <div class="bonus-card">
+      <h2>Nexo</h2>
+      <p>Get free crypto and earn up to 12% on your assets.</p>
+      <a href="https://nexo.com/ref/ofxlxksd1u?src=ios-link" target="_blank">Claim Bonus</a>
+    </div>
+    <div class="bonus-card">
+      <h2>Bitget</h2>
+      <p>Receive up to $5,005 in welcome rewards.</p>
+      <a href="https://share.bitget.com/u/0M1NNWG0" target="_blank">Claim Bonus</a>
+    </div>
+    <div class="bonus-card">
+      <h2>XT.com</h2>
+      <p>Join the world’s first social crypto exchange and earn bonuses.</p>
+      <a href="https://www.xt.com/en/accounts/register?ref=I4IXXC" target="_blank">Claim Bonus</a>
+    </div>
+  </div>
+  <footer>
+    © 2025 GetBonus. All rights reserved.
+  </footer>
+</body>
