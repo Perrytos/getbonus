@@ -3,202 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GetBonus - Best referral bonuses</title>
-  <meta name="description" content="Join the top platforms with exclusive referral bonuses. Crypto, finance, and more — Get your bonus now!" />
-  <meta name="keywords" content="referral, bonus, crypto, finance, signup, revolut, binance, getbonus" />
-  <meta name="author" content="Marco" />
-  <meta property="og:title" content="GetBonus - Best referral bonuses" />
-  <meta property="og:description" content="Join the top platforms with exclusive referral bonuses. Crypto, finance, and more — Get your bonus now!" />
+  <title>GetBonus - Invite Codes & Signup Rewards</title>
+  <meta name="description" content="Get bonus rewards by signing up with exclusive invite codes. Access promotions from Binance, Revolut, Coinbase and more!" />
+  <meta name="keywords" content="invite code, referral bonus, signup bonus, Binance, Revolut, Coinbase, crypto rewards, get bonus, earn free" />
+  <meta name="author" content="GetBonus Team" />
+  <meta property="og:title" content="GetBonus - Invite Codes & Rewards" />
+  <meta property="og:description" content="Claim bonuses by using exclusive invite codes. Fast, easy and free!" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://getbonus.vercel.app/" />
-  <meta property="og:image" content="https://getbonus.vercel.app/preview.jpg" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta property="og:image" content="https://getbonus.vercel.app/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GetBonus - Invite Codes & Signup Rewards" />
+  <meta name="twitter:description" content="Join and get exclusive signup bonuses. Discover top referral codes today." />
+  <link rel="icon" href="favicon.ico" />
   <style>
     body {
-      background-color: #000;
+      background-color: #111;
       color: #fff;
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 2rem;
+      line-height: 1.6;
     }
-    header {
-      padding: 20px;
+    h1, h2 {
       text-align: center;
-      font-size: 2em;
-    }
-    .lang-select {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .referral-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 25px;
-      padding-bottom: 50px;
     }
     .referral {
-      background: #111;
-      padding: 20px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 500px;
-      box-shadow: 0 0 5px #444;
-    }
-    .referral h2 {
-      margin: 0 0 10px 0;
-    }
-    .referral p {
-      margin: 0 0 15px 0;
+      background: #222;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
     }
     .referral a {
-      background: #1db954;
-      color: #000;
-      padding: 10px 15px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
+      color: #0f0;
+      word-break: break-all;
     }
-    .referral a:hover {
-      background: #1ed760;
+    .lang-select {
+      text-align: right;
+      margin-bottom: 1rem;
     }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #888;
+    .lang-select select {
+      padding: 0.5rem;
+      background: #333;
+      color: #fff;
+      border: 1px solid #444;
     }
   </style>
+</head>
+<body>
+  <div class="lang-select">
+    <label for="language">🌍 Language: </label>
+    <select id="language" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="it">Italiano</option>
+      <option value="es">Español</option>
+      <option value="fr">Français</option>
+      <option value="zh">中文</option>
+      <option value="ar">العربية</option>
+      <option value="ru">Русский</option>
+    </select>
+  </div>
+
+  <h1 id="title">GetBonus</h1>
+  <p id="intro">Discover the best referral codes and signup bonuses available now.</p>
+
+  <div class="referral">
+    <h2>Binance</h2>
+    <p id="binance-desc">Sign up and get surprise mystery box rewards!</p>
+    <a href="https://www.binance.com/referral/mystery-box/eu-rewardbox/claim?ref=GRO_18422_2WXBJ" target="_blank">https://www.binance.com/.../claim?ref=GRO_18422_2WXBJ</a>
+  </div>
+
+  <div class="referral">
+    <h2>Revolut</h2>
+    <p id="revolut-desc">Get cash bonuses when you invite and sign up!</p>
+    <a href="https://revolut.com/referral/?referral-code=marcov7dy!JUN2-25-AR&geo-redirect" target="_blank">https://revolut.com/referral/?referral-code=marcov7dy...</a>
+  </div>
+
+  <!-- Add others as needed -->
+
   <script>
     const translations = {
       en: {
-        title: "GetBonus - Best referral bonuses",
-        links: {
-          binance: "Register and claim your mystery box on Binance.",
-          revolut: "Open your Revolut account and get your welcome bonus.",
-          coinbase: "Join Coinbase and get a free crypto bonus.",
-          crypto: "Sign up on Crypto.com and get rewards instantly.",
-          bitget: "Register on Bitget and start earning today.",
-          nexo: "Earn crypto with Nexo. Join and get a bonus.",
-          xt: "Trade on XT.com with a welcome bonus.",
-          xportal: "Join xPortal and earn rewards.",
-          etoro: "Invest with eToro and claim your bonus.",
-        },
+        title: "GetBonus",
+        intro: "Discover the best referral codes and signup bonuses available now.",
+        "binance-desc": "Sign up and get surprise mystery box rewards!",
+        "revolut-desc": "Get cash bonuses when you invite and sign up!",
       },
       it: {
-        title: "GetBonus - I migliori bonus di benvenuto",
-        links: {
-          binance: "Registrati e ricevi la mystery box su Binance.",
-          revolut: "Apri il conto Revolut e ricevi il bonus di benvenuto.",
-          coinbase: "Unisciti a Coinbase e ricevi un bonus in crypto.",
-          crypto: "Registrati su Crypto.com e ricevi subito dei premi.",
-          bitget: "Registrati su Bitget e inizia a guadagnare.",
-          nexo: "Guadagna crypto con Nexo. Unisciti ora.",
-          xt: "Fai trading su XT.com con un bonus di benvenuto.",
-          xportal: "Unisciti a xPortal e ricevi ricompense.",
-          etoro: "Investi con eToro e ricevi il tuo bonus.",
-        },
+        title: "GetBonus",
+        intro: "Scopri i migliori codici invito e bonus di registrazione disponibili ora.",
+        "binance-desc": "Registrati e ricevi ricompense a sorpresa nella mystery box!",
+        "revolut-desc": "Ricevi bonus in denaro invitando e registrandoti!",
       },
       es: {
-        title: "GetBonus - Mejores bonos de referencia",
-        links: {
-          binance: "Regístrate y recibe tu mystery box en Binance.",
-          revolut: "Abre tu cuenta Revolut y obtén tu bono.",
-          coinbase: "Únete a Coinbase y consigue un bono en cripto.",
-          crypto: "Regístrate en Crypto.com y recibe recompensas.",
-          bitget: "Regístrate en Bitget y comienza a ganar.",
-          nexo: "Gana cripto con Nexo. Únete ahora.",
-          xt: "Opera en XT.com con bono de bienvenida.",
-          xportal: "Únete a xPortal y gana recompensas.",
-          etoro: "Invierte con eToro y recibe tu bono.",
-        },
+        title: "GetBonus",
+        intro: "Descubre los mejores códigos de invitación y bonos de registro.",
+        "binance-desc": "Regístrate y consigue premios sorpresa con la mystery box.",
+        "revolut-desc": "¡Recibe bonos en efectivo al invitar y registrarte!",
       },
       fr: {
-        title: "GetBonus - Meilleures offres de parrainage",
-        links: {
-          binance: "Inscrivez-vous et recevez une mystery box sur Binance.",
-          revolut: "Ouvrez un compte Revolut et recevez un bonus.",
-          coinbase: "Rejoignez Coinbase et recevez un bonus crypto.",
-          crypto: "Inscrivez-vous sur Crypto.com et recevez des récompenses.",
-          bitget: "Inscrivez-vous sur Bitget et commencez à gagner.",
-          nexo: "Gagnez des cryptos avec Nexo. Rejoignez-nous.",
-          xt: "Tradez sur XT.com avec un bonus.",
-          xportal: "Rejoignez xPortal et recevez des récompenses.",
-          etoro: "Investissez avec eToro et obtenez un bonus.",
-        },
+        title: "GetBonus",
+        intro: "Découvrez les meilleurs codes de parrainage et bonus d'inscription.",
+        "binance-desc": "Inscrivez-vous et recevez des récompenses surprises dans la mystery box.",
+        "revolut-desc": "Recevez des bonus en espèces en invitant et en vous inscrivant.",
       },
+      zh: {
+        title: "GetBonus",
+        intro: "立即发现最佳邀请代码和注册奖励。",
+        "binance-desc": "注册并获得惊喜神秘礼盒奖励！",
+        "revolut-desc": "邀请注册可获得现金奖励！",
+      },
+      ar: {
+        title: "GetBonus",
+        intro: "اكتشف أفضل رموز الدعوة والمكافآت المتاحة الآن.",
+        "binance-desc": "سجل واحصل على جوائز صندوق المفاجآت!",
+        "revolut-desc": "احصل على مكافآت نقدية عند الدعوة والتسجيل!",
+      },
+      ru: {
+        title: "GetBonus",
+        intro: "Откройте для себя лучшие реферальные коды и бонусы за регистрацию.",
+        "binance-desc": "Зарегистрируйтесь и получите призы из таинственного ящика!",
+        "revolut-desc": "Получите денежные бонусы за приглашения и регистрацию!",
+      }
     };
 
-    function setLang(lang) {
-      const t = translations[lang] || translations.en;
-      document.querySelector("header").textContent = t.title;
-      document.querySelectorAll(".referral").forEach((r, i) => {
-        const keys = Object.keys(t.links);
-        const platform = keys[i];
-        if (platform) {
-          r.querySelector("p").textContent = t.links[platform];
-        }
-      });
+    function setLanguage(lang) {
+      const t = translations[lang];
+      if (t) {
+        document.getElementById("title").innerText = t.title;
+        document.getElementById("intro").innerText = t.intro;
+        document.getElementById("binance-desc").innerText = t["binance-desc"];
+        document.getElementById("revolut-desc").innerText = t["revolut-desc"];
+      }
     }
   </script>
-</head>
-<body onload="setLang('en')">
-  <header>GetBonus - Best referral bonuses</header>
-  <div class="lang-select">
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('it')">IT</button>
-    <button onclick="setLang('es')">ES</button>
-    <button onclick="setLang('fr')">FR</button>
-  </div>
-
-  <div class="referral-list">
-    <div class="referral">
-      <h2>Binance</h2>
-      <p>Loading...</p>
-      <a href="https://www.binance.com/referral/mystery-box/eu-rewardbox/claim?ref=GRO_18422_2WXBJ" target="_blank">Get Bonus</a>
-    </div>
-    <div class="referral">
-      <h2>Revolut</h2>
-      <p>Loading...</p>
-      <a href="https://revolut.com/referral/?referral-code=marcov7dy!JUN2-25-AR&geo-redirect" target="_blank">Get Bonus</a>
-    </div>
-    <div class="referral">
-      <h2>Coinbase</h2>
-      <p>Loading...</p>
-      <a href="https://coinbase.com/join/BCMK9M7?src=ios-link" target="_blank">Get Bonus</a>
-    </div>
-    <div class="referral">
-      <h2>Crypto.com</h2>
-      <p>Loading...</p>
-      <a href="https://crypto.com/app/fjfgub3kej" target="_blank">Get Bonus</a>
-    </div>
-    <div class="referral">
-      <h2>Bitget</h2>
-      <p>Loading...</p>
-      <a href="https://share.bitget.com/u/0M1NNWG0" target="_blank">Get Bonus</a>
-    </div>
-    <div class="referral">
-      <h2>Nexo</h2>
-      <p>Loading...</p>
-      <a href="https://nexo.com/ref/ofxlxksd1u?src=ios-link" target="_blank">Get Bonus</a>
-    </div>
-    <div class="referral">
-      <h2>XT.com</h2>
-      <p>Loading...</p>
-      <a href="https://www.xt.com/en/accounts/register?ref=I4IXXC" target="_blank">Get Bonus</a>
-    </div>
-    <div class="referral">
-      <h2>xPortal</h2>
-      <p>Loading...</p>
-      <a href="https://xportal.app.link/referral?code=fv0uij0594" target="_blank">Get Bonus</a>
-    </div>
-    <div class="referral">
-      <h2>eToro</h2>
-      <p>Loading...</p>
-      <a href="https://etoro.tw/3PQlrEl" target="_blank">Get Bonus</a>
-    </div>
-  </div>
-
-  <footer>&copy; 2025 GetBonus by Marco</footer>
 </body>
 </html>
